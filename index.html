@@ -1,0 +1,609 @@
+\
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Stories by Rajani — Wedding Photography</title>
+  <meta name="description" content="A cinematic wedding photography homepage for Stories by Rajani.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./public/index.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <header class="top-ui">
+    <a class="brand" href="#hero" aria-label="Stories by Rajani home">
+      <span class="brand-mark">S</span>
+      <span class="brand-name"><strong>Stories</strong><small>BY RAJANI</small></span>
+    </a>
+
+    <nav class="top-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+    </nav>
+
+    <a class="book-btn" href="#contact">Enquire</a>
+  </header>
+
+  <nav id="scene-nav" aria-label="Page sections">
+    <button class="scene-dot active" data-label="Hero" aria-label="Hero"></button>
+    <button class="scene-dot" data-label="about" aria-label="about"></button>
+    <button class="scene-dot" data-label="Services" aria-label="Services"></button>
+    <button class="scene-dot" data-label="Portfolio" aria-label="Portfolio"></button>
+    <button class="scene-dot" data-label="Contact" aria-label="Contact"></button>
+  </nav>
+
+  <!-- HERO — copied from the supplied herosection.html hero section -->
+  <section class="hero-spacer" id="hero" data-scene="1">
+    <div class="hero-pin">
+      <div class="stage" id="stage">
+        <div class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="rec">REC</span><span class="tc" id="tc">00:00:00:00</span></div>
+
+        <div class="hero-heading" id="heroHeading">
+           <h1>Because we are all stories.</h1>
+    
+        </div>
+
+        <div class="portrait" id="portrait">
+          <div class="rim"></div>
+          <div class="halo"></div>
+          <img class="pic" src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?auto=format&fit=crop&w=1600&q=80" alt="A photographer holding a DSLR camera" width="1600" height="1600" decoding="async" fetchpriority="high" referrerpolicy="no-referrer">
+        </div>
+
+        <div class="tile" data-tile="0" style="width:clamp(140px,17vw,240px);aspect-ratio:3/4;left:8%;top:24%;">
+          <img class="photo" src="https://storiesbyrajini.com/wp-content/uploads/2026/04/DSC06560-scaled.jpg" alt="Framing" loading="eager" decoding="async" referrerpolicy="no-referrer">
+          <div class="cap">Events</div>
+        </div>
+        <div class="tile" data-tile="1" style="width:clamp(150px,19vw,270px);aspect-ratio:13/10;right:8%;top:19%;">
+          <img class="photo" src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/eedcaa48d10ef52818d11abda6e99572065a3342.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg" alt="Detail" loading="eager" decoding="async" referrerpolicy="no-referrer">
+          <div class="cap">Wedding</div>
+        </div>
+        <div class="tile" data-tile="2" style="width:clamp(150px,19vw,270px);aspect-ratio:27/35;left:50%;bottom:5%;margin-left:calc(-1 * clamp(150px,19vw,270px) - 12px);">
+          <img class="photo" src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/7a88f9b7cb15f286d1c73e1cb34c1e48e93a5456.jpg?w=960&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg" alt="On location" loading="eager" decoding="async" referrerpolicy="no-referrer">
+          <div class="cap">Engagement</div>
+        </div>
+        <div class="tile" data-tile="3" style="width:clamp(140px,18vw,260px);aspect-ratio:13/10;left:50%;bottom:7%;margin-left:12px;">
+          <img class="photo" src="https://storiesbyrajini.com/wp-content/uploads/2026/04/SPA6980-scaled.jpg" alt="Silhouette" loading="eager" decoding="async" referrerpolicy="no-referrer">
+          <div class="cap">Potraits</div>
+        </div>
+
+        <div class="scroll-cue" id="scrollCue">
+ <center>
+                    <p style="color: var(--gold);">storiesbyrajini is an award-winning team of photographers
+who believe in stories; stories of love, laughter and happily ever after.</p>
+    
+ </center> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- ABOUT -->
+    <section style="padding-bottom: 0;" class="section" id="about" aria-hidden="true" data-scene="2">
+      <div data-aos="fade-down" class="">
+        <p class="kicker">In My Own Words</p>
+        <h2>We <em> photograph</em>
+your stories</h2>
+     </div>
+
+      <div class="about-grid" style="align-items: center;">
+   <div>
+         <figure  data-aos="zoom-in" class="about-image ">
+          <img class="parallax-image" src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/aa26f73e29b11a71b2410f5d66169b24e3c2a238.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg" alt="Couple walking together during a wedding celebration">
+          <figcaption class="caption">
+            <h3>
+              Rajini
+            </h3>
+            <h6>
+              LEAD PHOTOGRAPHER . EST. 2014
+            </h6>
+          </figcaption>
+        </figure>
+        <div>
+             <p class="lead">Hi, I am Rajini. For over 12 years I have been waking up before sunrise, travelling to unfamiliar venues, and standing quietly in corners — all so that I never miss the moment that matters most to you.</p>
+      
+        </div>
+   </div>
+
+        <div  data-aos="fade-left" class="about-copy ">
+          <p>We are not just a photographers'. We are a keeper of your memories - the team who makes sure that 30 years from now, you can open a gallery and feel exactly what you felt on that day.</p>
+          <p style="margin-top:20px;">Every gallery is colour-shaped by hand, every highlight film is cut around the rhythm of the day, and every couple gets a calm, collaborative experience from enquiry to delivery.</p>
+
+          <div class="stats">
+            <div>
+              <span class="stat-num" > 12+ </span>
+              <span class="stat-label">Years behind the lens</span></div>
+            
+              <div><span class="stat-num" >500+</span><span class="stat-label">Satistied souls</span></div>
+            <div><span class="stat-num" >150+</span><span class="stat-label">Brand shoots</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+
+<section   class="section full" id="services" a data-scene="3">
+ <div class="section reveal" style="padding:0 4vh">
+    <p class="kicker">Our services</p>
+
+    <h2>
+      Every celebration,
+      <em>beautifully remembered.</em>
+    </h2>
+
+    <p class="lead">
+      From the first look to the final dance, we create photographs
+      and films that preserve the feeling of your wedding day.
+    </p>
+
+</div>
+     
+ 
+  <div style="padding-top: 0;  padding-left: 0; padding-right: 0;" class="section reveal">
+
+
+    <div class="services-scroll" id="servicesScroll">
+
+      <div class="services-pin" id="servicesPin">
+
+        <!-- SERVICE 01 -->
+        <article  class="services-slide active">
+
+          <img 
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/10583318b59b4e834bf30c946563c02d30d8cea0.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding couple together after their ceremony"
+          >
+
+          <div  class="services-slide-content">
+
+            <div class="services-slide-number">
+              01 / 05
+            </div>
+
+            <h3>
+              Wedding Photography & Cinematic Films
+            </h3>
+
+            <div class="service-line"></div>
+
+            <p>
+              500+ weddings documented across Hyderabad, Telangana, Andhra Pradesh and beyond. From morning rituals to the final farewell — every moment preserved with honesty and artistry.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- SERVICE 02 -->
+        <article class="services-slide">
+
+          <img 
+            style="object-position: bottom;"
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/c8a95f1cb14459b21e10a6c8a0a60e3e70e626f0.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Bride walking during a wedding ceremony"
+          >
+
+          <div class="services-slide-content">
+
+            <div class="services-slide-number">
+              02 / 05
+            </div>
+
+            <h3>
+              Pre-Wedding shoots
+            </h3>
+
+            <div class="service-line"></div>
+
+            <p>
+            Relaxed, creative, deeply personal. I personally scout every location, plan the light, and create a space where you can simply be yourselves. The results are always extraordinary.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- SERVICE 03 -->
+        <article class="services-slide">
+
+          <img
+            src="https://storiesbyrajini.com/wp-content/uploads/2026/03/Sangeeth-Photography_Storiesbyrajini_2-scaled.jpg"
+            alt="Wedding couple sharing an intimate moment"
+          >
+
+          <div class="services-slide-content">
+
+            <div class="services-slide-number">
+              03 / 05
+            </div>
+
+            <h3>
+              Events & Functions
+            </h3>
+
+            <div class="service-line"></div>
+
+            <p>
+             Half saree ceremonies, engagements, haldi, mehendi, birthdays — all of life's precious milestones covered with the same artistry I bring to weddings
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- SERVICE 04 -->
+        <article class="services-slide">
+
+          <img
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2200&q=90"
+            alt="Guests celebrating at a wedding reception"
+          >
+
+          <div class="services-slide-content">
+
+            <div class="services-slide-number">
+              04 / 05
+            </div>
+
+            <h3>
+              Carporate shoots
+            </h3>
+
+            <div class="service-line"></div>
+
+            <p>
+            From product launches and team headshots to conferences and brand campaigns — I bring the same storytelling eye to corporate photography that I bring to weddings.
+            </p>
+
+          </div>
+
+        </article>
+
+                <!-- SERVICE 05 -->
+        <article class="services-slide">
+
+          <img
+            src="https://storiesbyrajini.com/wp-content/uploads/2026/04/DAE01219-scaled.jpg"
+            alt="Wedding couple together after their ceremony"
+          >
+
+          <div class="services-slide-content">
+
+            <div class="services-slide-number">
+              05 / 05
+            </div>
+
+            <h3>
+              Portrait Photography
+            </h3>
+
+            <div class="service-line"></div>
+
+            <p>
+           A great portrait is about looking like the most natural, confident version of yourself. I create a relaxed atmosphere where your true personality comes through in every frame.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- UI -->
+        <div class="services-progress">
+
+          <span id="servicesCurrent">
+            01
+          </span>
+
+          <div class="services-progress-bar">
+            <span id="servicesProgressBar"></span>
+          </div>
+
+          <span>
+            05
+          </span>
+
+        </div>
+
+        <div class="services-side-label">
+          Our Services
+        </div>
+
+        <div class="services-scroll-hint">
+          Scroll to explore
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+<!-- PORTFOLIO -->
+<section style="padding-top: 0; padding-bottom: 0;" class="section" id="portfolio" aria-hidden="true" data-scene="4">
+
+  <div class="portfolio-intro reveal">
+
+    <div>
+      <p class="kicker">Our Stories</p>
+
+      <h2>
+        Stories told in <em>frames</em><br>
+        
+      </h2>
+    </div>
+
+    <p class="lead">
+    A curated selection of our favourite work — weddings, pre-weddings, events and commercial shoots from across India
+
+
+    </p>
+
+    <!-- <center>
+      <h3 style="color: var(--gold);">
+      <em>Every frame is a memory preserved</em>
+    </h3>
+    </center> -->
+  </div>
+
+
+  <div class="portfolio-showcase">
+
+    <div class="portfolio-rail">
+
+
+      <!-- =================================================
+           PANEL 1
+           ================================================= -->
+
+      <div class="portfolio-panel">
+
+        <figure class="portfolio-card card-1">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/473db075f70c11df4fd2e1d831f345ecb290d11a.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding couple celebrating outdoors"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Weddings</strong>
+            <!-- <span>Jaipur · Wedding</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-2">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/96d73610f892fdd654543269a828206db5c7cddc.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding portrait after the ceremony"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Engagements</strong>
+            <!-- <span>Portraits</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-3">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/5490fe2e37fc524cddb9b8e8fbfe20ba08c2766b.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding couple sharing a quiet moment"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Haldi</strong>
+            <!-- <span>Couples</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-4">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/aa261d4e67c3d61931cd977282e7e6a6b09ee0ba.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding flowers and celebration details"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Pre Wedding</strong>
+            <!-- <span>Details</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-5">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/6f7536b9647d48ea643f9e98a0e1d02eff7bd61c.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Bride walking toward a wedding ceremony"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Reception</strong>
+   
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-6">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/5d6bc3a58686d451a44cc556e3983a91253726a6.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding reception celebration"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Sangeeth</strong>
+        
+          </figcaption>
+        </figure>
+
+      </div>
+
+
+      <!-- =================================================
+           PANEL 2 — EXACT DUPLICATE
+           DO NOT CHANGE ORDER / SIZE / POSITION
+           ================================================= -->
+
+      <div class="portfolio-panel">
+
+        <figure class="portfolio-card card-1">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/473db075f70c11df4fd2e1d831f345ecb290d11a.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding couple celebrating outdoors"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Weddings</strong>
+            <!-- <span>Jaipur · Wedding</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-2">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/96d73610f892fdd654543269a828206db5c7cddc.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding portrait after the ceremony"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Engagements</strong>
+            <!-- <span>Portraits</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-3">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/5490fe2e37fc524cddb9b8e8fbfe20ba08c2766b.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding couple sharing a quiet moment"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Haldi</strong>
+            <!-- <span>Couples</span> -->
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-4">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/aa261d4e67c3d61931cd977282e7e6a6b09ee0ba.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding flowers and celebration details"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Pre Wedding</strong>
+            <!-- <span>Details</span> -->
+          </figcaption>
+        </figure>
+
+
+    <figure class="portfolio-card card-5">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/6f7536b9647d48ea643f9e98a0e1d02eff7bd61c.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Bride walking toward a wedding ceremony"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Reception</strong>
+   
+          </figcaption>
+        </figure>
+
+
+        <figure class="portfolio-card card-6">
+          <img
+            src="https://storage.onecloudpro.com/images/storiesbyrajiniphotography/5d6bc3a58686d451a44cc556e3983a91253726a6.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg"
+            alt="Wedding reception celebration"
+          >
+
+          <figcaption class="portfolio-card-meta">
+            <strong>Sangeeth</strong>
+        
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+    <!-- CONTACT -->
+    <section  class="section cta" id="contact" data-scene="5">
+      <div class="reveal">
+        <p class="kicker">Start a story</p>
+        <h2>Your day deserves to be remembered <em>beautifully.</em></h2>
+        <p class="lead">Tell us your date, city and what matters most to you. This demo homepage uses sample contact details and placeholder copy.</p>
+      </div>
+      <a class="cta-btn reveal" href="mailto:hello@storiesbyrajani.example">Begin your enquiry ↗</a>
+    </section>
+  </main>
+
+  <footer>
+
+    <div class="container" style="display:flex;justify-content:space-between; margin-bottom: 20px;">
+
+<div>
+  <span class="brand-name"><strong>Stories</strong><small>BY RAJANI</small></span>
+</div>
+
+<div>
+<a href="">
+<p>  Portfolio</p>
+</a>
+
+<a href="">
+  <p>Contact us</p>
+</a>
+</div>
+
+<div>
+<svg style="margin: 8px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="url(#skillIconsInstagram0)" rx="60"/><rect width="256" height="256" fill="url(#skillIconsInstagram1)" rx="60"/><path fill="#000000" d="M128.009 28c-27.158 0-30.567.119-41.233.604c-10.646.488-17.913 2.173-24.271 4.646c-6.578 2.554-12.157 5.971-17.715 11.531c-5.563 5.559-8.98 11.138-11.542 17.713c-2.48 6.36-4.167 13.63-4.646 24.271c-.477 10.667-.602 14.077-.602 41.236s.12 30.557.604 41.223c.49 10.646 2.175 17.913 4.646 24.271c2.556 6.578 5.973 12.157 11.533 17.715c5.557 5.563 11.136 8.988 17.709 11.542c6.363 2.473 13.631 4.158 24.275 4.646c10.667.485 14.073.604 41.23.604c27.161 0 30.559-.119 41.225-.604c10.646-.488 17.921-2.173 24.284-4.646c6.575-2.554 12.146-5.979 17.702-11.542c5.563-5.558 8.979-11.137 11.542-17.712c2.458-6.361 4.146-13.63 4.646-24.272c.479-10.666.604-14.066.604-41.225s-.125-30.567-.604-41.234c-.5-10.646-2.188-17.912-4.646-24.27c-2.563-6.578-5.979-12.157-11.542-17.716c-5.562-5.562-11.125-8.979-17.708-11.53c-6.375-2.474-13.646-4.16-24.292-4.647c-10.667-.485-14.063-.604-41.23-.604h.031Zm-8.971 18.021c2.663-.004 5.634 0 8.971 0c26.701 0 29.865.096 40.409.575c9.75.446 15.042 2.075 18.567 3.444c4.667 1.812 7.994 3.979 11.492 7.48c3.5 3.5 5.666 6.833 7.483 11.5c1.369 3.52 3 8.812 3.444 18.562c.479 10.542.583 13.708.583 40.396c0 26.688-.104 29.855-.583 40.396c-.446 9.75-2.075 15.042-3.444 18.563c-1.812 4.667-3.983 7.99-7.483 11.488c-3.5 3.5-6.823 5.666-11.492 7.479c-3.521 1.375-8.817 3-18.567 3.446c-10.542.479-13.708.583-40.409.583c-26.702 0-29.867-.104-40.408-.583c-9.75-.45-15.042-2.079-18.57-3.448c-4.666-1.813-8-3.979-11.5-7.479s-5.666-6.825-7.483-11.494c-1.369-3.521-3-8.813-3.444-18.563c-.479-10.542-.575-13.708-.575-40.413c0-26.704.096-29.854.575-40.396c.446-9.75 2.075-15.042 3.444-18.567c1.813-4.667 3.983-8 7.484-11.5c3.5-3.5 6.833-5.667 11.5-7.483c3.525-1.375 8.819-3 18.569-3.448c9.225-.417 12.8-.542 31.437-.563v.025Zm62.351 16.604c-6.625 0-12 5.37-12 11.996c0 6.625 5.375 12 12 12s12-5.375 12-12s-5.375-12-12-12v.004Zm-53.38 14.021c-28.36 0-51.354 22.994-51.354 51.355c0 28.361 22.994 51.344 51.354 51.344c28.361 0 51.347-22.983 51.347-51.344c0-28.36-22.988-51.355-51.349-51.355h.002Zm0 18.021c18.409 0 33.334 14.923 33.334 33.334c0 18.409-14.925 33.334-33.334 33.334c-18.41 0-33.333-14.925-33.333-33.334c0-18.411 14.923-33.334 33.333-33.334Z"/><defs><radialGradient id="skillIconsInstagram0" cx="0" cy="0" r="1" gradientTransform="matrix(0 -253.715 235.975 0 68 275.717)" gradientUnits="userSpaceOnUse"><stop stop-color="#FD5"/><stop offset=".1" stop-color="#FD5"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient><radialGradient id="skillIconsInstagram1" cx="0" cy="0" r="1" gradientTransform="matrix(22.25952 111.2061 -458.39518 91.75449 -42.881 18.441)" gradientUnits="userSpaceOnUse"><stop stop-color="#3771C8"/><stop offset=".128" stop-color="#3771C8"/><stop offset="1" stop-color="#60F" stop-opacity="0"/></radialGradient></defs></g></svg>
+<svg style="margin: 8px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 258"><defs><linearGradient id="logosWhatsappIcon0" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#1FAF38"/><stop offset="100%" stop-color="#60D669"/></linearGradient><linearGradient id="logosWhatsappIcon1" x1="50%" x2="50%" y1="100%" y2="0%"><stop offset="0%" stop-color="#F9F9F9"/><stop offset="100%" stop-color="#FFF"/></linearGradient></defs><path fill="url(#logosWhatsappIcon0)" d="M5.463 127.456c-.006 21.677 5.658 42.843 16.428 61.499L4.433 252.697l65.232-17.104a122.994 122.994 0 0 0 58.8 14.97h.054c67.815 0 123.018-55.183 123.047-123.01c.013-32.867-12.775-63.773-36.009-87.025c-23.23-23.25-54.125-36.061-87.043-36.076c-67.823 0-123.022 55.18-123.05 123.004"/><path fill="url(#logosWhatsappIcon1)" d="M1.07 127.416c-.007 22.457 5.86 44.38 17.014 63.704L0 257.147l67.571-17.717c18.618 10.151 39.58 15.503 60.91 15.511h.055c70.248 0 127.434-57.168 127.464-127.423c.012-34.048-13.236-66.065-37.3-90.15C194.633 13.286 162.633.014 128.536 0C58.276 0 1.099 57.16 1.071 127.416Zm40.24 60.376l-2.523-4.005c-10.606-16.864-16.204-36.352-16.196-56.363C22.614 69.029 70.138 21.52 128.576 21.52c28.3.012 54.896 11.044 74.9 31.06c20.003 20.018 31.01 46.628 31.003 74.93c-.026 58.395-47.551 105.91-105.943 105.91h-.042c-19.013-.01-37.66-5.116-53.922-14.765l-3.87-2.295l-40.098 10.513l10.706-39.082Z"/><path fill="#000000" d="M96.678 74.148c-2.386-5.303-4.897-5.41-7.166-5.503c-1.858-.08-3.982-.074-6.104-.074c-2.124 0-5.575.799-8.492 3.984c-2.92 3.188-11.148 10.892-11.148 26.561c0 15.67 11.413 30.813 13.004 32.94c1.593 2.123 22.033 35.307 54.405 48.073c26.904 10.609 32.379 8.499 38.218 7.967c5.84-.53 18.844-7.702 21.497-15.139c2.655-7.436 2.655-13.81 1.859-15.142c-.796-1.327-2.92-2.124-6.105-3.716c-3.186-1.593-18.844-9.298-21.763-10.361c-2.92-1.062-5.043-1.592-7.167 1.597c-2.124 3.184-8.223 10.356-10.082 12.48c-1.857 2.129-3.716 2.394-6.9.801c-3.187-1.598-13.444-4.957-25.613-15.806c-9.468-8.442-15.86-18.867-17.718-22.056c-1.858-3.184-.199-4.91 1.398-6.497c1.431-1.427 3.186-3.719 4.78-5.578c1.588-1.86 2.118-3.187 3.18-5.311c1.063-2.126.531-3.986-.264-5.579c-.798-1.593-6.987-17.343-9.819-23.64"/></svg>
+<svg style="margin: 8px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#F4F2ED" rx="60"/><path fill="#4285F4" d="M41.636 203.039h31.818v-77.273L28 91.676v97.727c0 7.545 6.114 13.636 13.636 13.636"/><path fill="#34A853" d="M182.545 203.039h31.819c7.545 0 13.636-6.114 13.636-13.636V91.675l-45.455 34.091"/><path fill="#FBBC04" d="M182.545 66.675v59.091L228 91.676V73.492c0-16.863-19.25-26.477-32.727-16.363"/><path fill="#EA4335" d="M73.455 125.766v-59.09L128 107.583l54.545-40.909v59.091L128 166.675"/><path fill="#C5221F" d="M28 73.493v18.182l45.454 34.091v-59.09L60.727 57.13C47.227 47.016 28 56.63 28 73.493"/></g></svg>
+
+</div>
+
+  </div>
+
+<div style="display:flex;justify-content:space-between;">
+      <span>© 2026 Stories by Rajani</span>
+    <span>Wedding photography · Films · Editorial stories</span>
+ 
+ 
+</div>
+ 
+ </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="./public/main.js"></script>
+<script>
+   AOS.init({
+            // Global settings (Optional):
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: false,   // whether animation should happen only once - while scrolling down
+        });
+</script>
+</body>
+</html>

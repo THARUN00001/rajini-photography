@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stories by Rajani — Photography &amp; Videography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#07070b;
+    --ink-2:#0e0e16;
+    --cream:#f4ecda;
+    --gold:#d8b26a;
+    --gold-soft:#e9cf9a;
+    --ember:#e07a3f;
+    --ember-2:#b64a2c;
+    --line: rgba(244,236,218,0.14);
+    box-sizing:border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top: env(safe-area-inset-top, 0px);}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background: var(--ink);
+    color: var(--cream);
+    font-family:'Jost', sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  ::selection{background: var(--ember); color:#0a0a0a;}
+
+  /* ---------- starfield ---------- */
+  #stars{
+    position:fixed; inset:0; width:100%; height:100%;
+    z-index:0; pointer-events:none;
+  }
+
+  .vignette{
+    position:fixed; inset:0; z-index:1; pointer-events:none;
+    background: radial-gradient(ellipse at 50% 40%, transparent 35%, rgba(2,2,6,0.55) 100%);
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position: fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: env(safe-area-inset-top, 0px) 5vw 0;
+    padding-top: calc(env(safe-area-inset-top,0px) + 26px);
+    padding-bottom: 22px;
+    background: linear-gradient(to bottom, rgba(5,5,9,0.75) 0%, rgba(5,5,9,0) 100%);
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cormorant Garamond', serif;
+    letter-spacing:0.04em;
+  }
+  .brand .mark{
+    width:34px; height:34px; border:1px solid var(--gold);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:15px; color:var(--gold-soft); flex-shrink:0;
+  }
+  .brand-text{line-height:1.05;}
+  .brand-text .top{display:block; font-size:19px; font-weight:600; color:var(--cream);}
+  .brand-text .bottom{display:block; font-size:9.5px; letter-spacing:0.32em; color:var(--gold); margin-top:2px;}
+
+  .nav-links{
+    display:flex; gap:38px; list-style:none; margin:0; padding:0;
+    font-size:13.5px; letter-spacing:0.03em; color: rgba(244,236,218,0.82);
+  }
+  .nav-links a{ position:relative; padding-bottom:4px; transition: color .25s ease; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
+    background: var(--gold); transition: width .3s ease;
+  }
+  .nav-links a:hover{ color: var(--cream); }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-right{ display:flex; align-items:center; gap:22px; }
+  .pill{
+    border:1px solid var(--gold); color: var(--gold-soft);
+    padding:9px 20px; border-radius:999px; font-size:12.5px;
+    letter-spacing:0.08em; transition: background .25s ease, color .25s ease;
+    white-space:nowrap;
+  }
+  .pill:hover{ background: var(--gold); color:#1a1206; }
+  .login{ font-size:13px; color: rgba(244,236,218,0.75); display:flex; align-items:center; gap:6px;}
+
+  @media (max-width: 860px){
+    .nav-links{display:none;}
+    .brand-text .top{font-size:16px;}
+  }
+
+  /* ---------- hero / pinned sequence ---------- */
+  .hero-spacer{ position:relative; height: 460vh; z-index:2; }
+  .hero-pin{
+    position:sticky; top:0; height:100vh; width:100%;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+
+  .stage{
+    position:relative; width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .portrait{
+    position:relative; width:min(46vw, 480px); height:min(46vw,480px);
+    display:flex; align-items:center; justify-content:center;
+    z-index:5; will-change: transform;
+  }
+  .portrait .halo{
+    position:absolute; inset:0; border-radius:50%;
+    background: radial-gradient(circle at 42% 45%, #fbf6ea 0%, #e9dcc0 38%, #c7a86a 62%, rgba(199,168,106,0) 72%);
+    filter: blur(0.5px);
+  }
+  .portrait svg{ position:relative; width:78%; height:78%; z-index:2; }
+  .portrait .pic{
+    position:absolute; inset:0; z-index:2; width:100%; height:100%; border-radius:50%;
+    object-fit:cover; object-position:50% 32%; display:block;
+    box-shadow: 0 0 0 1px rgba(216,178,106,0.6), 0 0 0 12px rgba(216,178,106,0.08);
+  }
+  .portrait .rim{
+    position:absolute; inset:-6%; border-radius:50%;
+    box-shadow: 0 0 90px 10px rgba(224,122,63,0.25);
+    pointer-events:none;
+  }
+
+  .tile{
+    position:absolute; border-radius:12px; overflow:hidden; isolation:isolate;
+    box-shadow: 0 34px 70px -24px rgba(0,0,0,0.75), 0 0 0 1px rgba(244,236,218,0.10);
+    will-change: transform, opacity; backface-visibility:hidden; background:#14101a;
+  }
+  .tile .photo{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+    will-change: transform;
+  }
+  .tile::after{
+    content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+    background: linear-gradient(to top, rgba(4,4,8,0.62) 0%, rgba(4,4,8,0) 46%);
+  }
+  .tile .cap{
+    position:absolute; z-index:2; left:16px; bottom:14px; font-family:'Cormorant Garamond', serif;
+    font-style:italic; font-size:17px; letter-spacing:0.02em; color: #fff;
+  }
+  @media (max-width:760px){ .tile .cap{ font-size:14px; left:12px; bottom:10px; } }
+
+  .scroll-cue{
+    position:absolute; left:50%; bottom:46px; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    z-index:10; color: rgba(244,236,218,0.75);
+  }
+  .scroll-cue .wheel{
+    width:24px; height:38px; border:1px solid rgba(244,236,218,0.5);
+    border-radius:14px; position:relative;
+  }
+  .scroll-cue .wheel::after{
+    content:''; position:absolute; top:7px; left:50%; width:3px; height:7px;
+    background: var(--gold-soft); border-radius:2px; transform:translateX(-50%);
+    animation: cue 1.7s ease-in-out infinite;
+  }
+  .scroll-cue span{ font-size:10.5px; letter-spacing:0.34em; }
+  @keyframes cue{
+    0%{ transform:translate(-50%,0); opacity:1; }
+    65%{ transform:translate(-50%,14px); opacity:0; }
+    66%{ transform:translate(-50%,0); opacity:0; }
+    100%{ transform:translate(-50%,0); opacity:1; }
+  }
+
+  .hero-heading{
+    position:absolute; left:50%; top:16%; transform:translate(-50%,0);
+    text-align:center; z-index:10; pointer-events:none;
+  }
+  .hero-heading .eyebrow{
+    font-size:11px; letter-spacing:0.36em; color: var(--gold);
+    margin:0 0 14px;
+  }
+  .hero-heading h1{
+    font-family:'Cormorant Garamond', serif; font-weight:500; font-style:italic;
+    font-size: clamp(28px, 5vw, 54px); margin:0; color: var(--cream);
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- content sections after pin ---------- */
+  .section{
+    position:relative; z-index:2; padding: 130px 8vw 140px;
+    max-width:1180px; margin:0 auto;
+  }
+  .section .kicker{
+    font-size:11.5px; letter-spacing:0.32em; color: var(--gold);
+    margin:0 0 20px;
+  }
+  .section h2{
+    font-family:'Cormorant Garamond', serif; font-weight:500;
+    font-size: clamp(30px, 4.4vw, 52px); line-height:1.15; margin:0 0 26px;
+    max-width:14ch;
+  }
+  .section p.lead{
+    font-size:16.5px; line-height:1.75; color: rgba(244,236,218,0.72);
+    max-width:56ch; margin:0;
+  }
+
+  .strip{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;
+    margin-top:64px;
+  }
+  .strip .card{
+    aspect-ratio: 3/4; border-radius:8px; position:relative; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .strip .card .grad{position:absolute; inset:0;}
+  .strip .card .label{
+    position:absolute; left:14px; bottom:14px; font-family:'Cormorant Garamond', serif;
+    font-style:italic; font-size:15px; color:#fff; text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+  @media (max-width: 760px){
+    .strip{ grid-template-columns: repeat(2,1fr); }
+  }
+
+  footer{
+    position:relative; z-index:2; border-top:1px solid var(--line);
+    padding: 46px 8vw calc(46px + env(safe-area-inset-bottom,0px));
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12.5px; color: rgba(244,236,218,0.55); flex-wrap:wrap; gap:14px;
+  }
+
+
+  /* ---------- viewfinder ---------- */
+  .vf{ position:absolute; inset: clamp(84px,12vh,112px) 4vw clamp(22px,5vh,42px); z-index:9; pointer-events:none; }
+  .vf i{ position:absolute; width:22px; height:22px; border:1px solid rgba(244,236,218,0.4); }
+  .vf i:nth-child(1){ left:0; top:0; border-right:0; border-bottom:0; }
+  .vf i:nth-child(2){ right:0; top:0; border-left:0; border-bottom:0; }
+  .vf i:nth-child(3){ left:0; bottom:0; border-right:0; border-top:0; }
+  .vf i:nth-child(4){ right:0; bottom:0; border-left:0; border-top:0; }
+  .vf .rec, .vf .tc{ position:absolute; bottom:12px; font-size:11px; letter-spacing:0.18em; color:rgba(244,236,218,0.7); font-variant-numeric:tabular-nums; }
+  .vf .rec{ left:16px; display:flex; align-items:center; gap:8px; }
+  .vf .rec::before{ content:''; width:7px; height:7px; border-radius:50%; background:#e0462f; }
+  .vf .tc{ right:16px; }
+  .tile .tag{ position:absolute; z-index:2; top:12px; right:12px; padding:5px 10px 5px 24px; border-radius:999px; font-size:10.5px; letter-spacing:0.1em; background:rgba(7,7,11,0.55); backdrop-filter:blur(6px); color:var(--cream); }
+  .tile .tag::before{ content:''; position:absolute; left:10px; top:50%; margin-top:-4px; border-style:solid; border-width:4px 0 4px 7px; border-color:transparent transparent transparent var(--gold-soft); }
+
+  /* ---------- keyboard focus ---------- */
+  a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
+
+  /* ---------- photography strip ---------- */
+  .strip .card .photo{ position:absolute; inset:0; width:100%; height:100%; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+  .strip .card:hover .photo{ transform:scale(1.05); }
+  .strip .card::after{ content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(4,4,8,0.6), rgba(4,4,8,0) 45%); }
+  .strip .card .label{ z-index:2; }
+
+  /* ---------- films ---------- */
+  .section h2.wide{ max-width:20ch; }
+  .reel{ position:relative; display:block; aspect-ratio:16/9; margin-top:56px; border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:0 40px 90px -30px rgba(0,0,0,0.85); }
+  .reel .photo{ position:absolute; inset:0; width:100%; height:100%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .reel:hover .photo{ transform:scale(1.04); }
+  .reel::after{ content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(4,4,8,0.7), rgba(4,4,8,0) 50%); }
+  .reel .play{ position:absolute; z-index:2; left:50%; top:50%; width:88px; height:88px; margin:-44px 0 0 -44px; border-radius:50%; border:1px solid rgba(244,236,218,0.75); background:rgba(7,7,11,0.35); backdrop-filter:blur(6px); transition: transform .4s ease, background .3s ease; }
+  .reel .play::before{ content:''; position:absolute; left:37px; top:33px; border-style:solid; border-width:11px 0 11px 18px; border-color:transparent transparent transparent var(--cream); transition:border-color .3s ease; }
+  .reel:hover .play, .reel:focus-visible .play{ transform:scale(1.08); background:var(--gold); }
+  .reel:hover .play::before, .reel:focus-visible .play::before{ border-left-color:#1a1206; }
+  .reel .meta{ position:absolute; z-index:2; left:24px; right:24px; bottom:26px; display:flex; justify-content:space-between; align-items:baseline; gap:16px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(16px,2vw,23px); }
+  .reel .meta span:last-child{ font-family:'Jost',sans-serif; font-style:normal; font-size:12.5px; letter-spacing:0.08em; font-variant-numeric:tabular-nums; }
+  .reel .prog{ position:absolute; z-index:2; left:0; right:0; bottom:0; height:3px; background:rgba(244,236,218,0.18); }
+  .reel .prog::after{ content:''; display:block; height:100%; width:38%; background:var(--gold); }
+  .formats{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:44px; }
+  .formats h3{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin:0 0 8px; }
+  .formats p{ margin:0; font-size:15px; line-height:1.7; color:rgba(244,236,218,0.68); }
+
+  /* ---------- services ---------- */
+  .services{ margin-top:56px; border-bottom:1px solid var(--line); }
+  .svc{ display:grid; grid-template-columns:1.1fr 1.7fr 9ch; gap:28px; align-items:baseline; padding:28px 0; border-top:1px solid var(--line); }
+  .svc h3{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(22px,2.6vw,30px); margin:0; }
+  .svc p{ margin:0; font-size:15.5px; line-height:1.7; color:rgba(244,236,218,0.68); max-width:52ch; }
+  .svc .medium{ font-size:12px; letter-spacing:0.14em; color:var(--gold); text-align:right; }
+
+  .pill.solid{ display:inline-block; margin-top:34px; padding:14px 30px; background:var(--gold); color:#1a1206; font-size:13.5px; }
+  .pill.solid:hover{ background:transparent; color:var(--gold-soft); }
+
+  @media (max-width:760px){
+    .formats{ grid-template-columns:1fr; gap:24px; }
+    .svc{ grid-template-columns:1fr; gap:8px; }
+    .svc .medium{ text-align:left; order:-1; }
+    .reel .play{ width:68px; height:68px; margin:-34px 0 0 -34px; }
+    .reel .play::before{ left:28px; top:24px; border-width:10px 0 10px 16px; }
+    .vf .tc, .vf .rec{ font-size:10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue .wheel::after{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<div class="vignette"></div>
+
+<nav>
+  <div class="brand">
+    <div class="mark">S</div>
+    <div class="brand-text">
+      <span class="top">Stories</span>
+      <span class="bottom">BY RAJANI</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Photography</a></li>
+    <li><a href="#films">Films</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="pill" href="#contact">Book a shoot</a>
+    <a class="login" href="#">Client gallery</a>
+  </div>
+</nav>
+
+<section class="hero-spacer" id="hero">
+  <div class="hero-pin">
+    <div class="stage" id="stage">
+      <div class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i><span class="rec">REC</span><span class="tc" id="tc">00:00:00:00</span></div>
+
+      <div class="hero-heading" id="heroHeading">
+        <p class="eyebrow">Photography &amp; Videography</p>
+        <h1>Every glance, held<br>a little longer.</h1>
+      </div>
+
+      <div class="portrait" id="portrait">
+        <div class="rim"></div>
+        <div class="halo"></div>
+        <img class="pic" src="https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?auto=format&fit=crop&w=1600&q=80" alt="A photographer holding a DSLR camera" width="1600" height="1600" decoding="async" fetchpriority="high" referrerpolicy="no-referrer">
+      </div>
+
+      <!-- flying photo tiles: swap any <svg class="photo"> for <img class="photo" src="your.jpg" alt=""> -->
+      <div class="tile" data-tile="0" style="width:clamp(140px,17vw,240px);aspect-ratio:3/4;left:8%;top:24%;">
+        <img class="photo" src="https://images.unsplash.com/photo-1495745966610-2a67f2297e5e?auto=format&fit=crop&w=900&q=75" alt="Framing" loading="eager" decoding="async" referrerpolicy="no-referrer"><!-- Photo: Nicolas Ladino Silva / Unsplash -->
+        <div class="cap">Framing</div>
+      </div>
+      <div class="tile" data-tile="1" style="width:clamp(150px,19vw,270px);aspect-ratio:13/10;right:8%;top:19%;">
+        <img class="photo" src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=900&q=75" alt="Detail" loading="eager" decoding="async" referrerpolicy="no-referrer"><!-- Photo: Reinhart Julian / Unsplash -->
+        <div class="cap">Detail</div>
+      </div>
+      <div class="tile" data-tile="2" style="width:clamp(150px,19vw,270px);aspect-ratio:27/35;left:50%;bottom:5%;margin-left:calc(-1 * clamp(150px,19vw,270px) - 12px);">
+        <img class="photo" src="https://images.unsplash.com/photo-1603574670812-d24560880210?auto=format&fit=crop&w=900&q=75" alt="On location" loading="eager" decoding="async" referrerpolicy="no-referrer"><!-- Photo: Kim Becker / Unsplash -->
+        <div class="cap">On location</div>
+      </div>
+      <div class="tile" data-tile="3" style="width:clamp(140px,18vw,260px);aspect-ratio:13/10;left:50%;bottom:7%;margin-left:12px;">
+        <img class="photo" src="https://images.unsplash.com/photo-1497316730643-415fac54a2af?auto=format&fit=crop&w=900&q=75" alt="Silhouette" loading="eager" decoding="async" referrerpolicy="no-referrer"><!-- Photo: Michael Henry / Unsplash -->
+        <div class="cap">Silhouette</div><span class="tag">Film 2:14</span>
+      </div>
+
+      <div class="scroll-cue" id="scrollCue">
+        <div class="wheel"></div>
+        <span>SCROLL TO EXPLORE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portfolio">
+  <p class="kicker">Photography</p>
+  <h2>Portraits and weddings, told quietly.</h2>
+  <p class="lead">The unposed moment is the one worth keeping. A small selection from recent weddings, pre-wedding shoots and portrait sittings.</p>
+  <div class="strip">
+    <div class="card"><svg class="photo" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="q1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#241318"/><stop offset="1" stop-color="#c8677a"/></linearGradient><radialGradient id="r1"><stop offset="0" stop-color="#ffd6c0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd6c0" stop-opacity="0"/></radialGradient></defs><rect width="240" height="320" fill="url(#q1)"/><circle cx="120" cy="192" r="160" fill="url(#r1)"/><circle cx="36" cy="64" r="16" fill="#ffd6c0" fill-opacity="0.16"/><circle cx="197" cy="51" r="22" fill="#ffd6c0" fill-opacity="0.12"/><circle cx="168" cy="134" r="11" fill="#ffd6c0" fill-opacity="0.2"/><circle cx="67" cy="144" r="13" fill="#ffd6c0" fill-opacity="0.14"/><circle cx="120" cy="38" r="10" fill="#ffd6c0" fill-opacity="0.22"/><path d="M68 320V220a26 26 0 0 1 52 0V320z" fill="#0d0710"/><circle cx="94" cy="180" r="16" fill="#0d0710"/><path d="M120 320V202a28 28 0 0 1 56 0V320z" fill="#0d0710"/><circle cx="148" cy="159" r="17" fill="#0d0710"/></svg><div class="label">Anika &amp; Rohan</div></div>
+    <div class="card"><svg class="photo" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="q2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d2230"/><stop offset="1" stop-color="#5fb3c4"/></linearGradient><radialGradient id="r2"><stop offset="0" stop-color="#cfefff" stop-opacity=".9"/><stop offset="1" stop-color="#cfefff" stop-opacity="0"/></radialGradient></defs><rect width="240" height="320" fill="url(#q2)"/><circle cx="100" cy="192" r="160" fill="url(#r2)"/><circle cx="36" cy="64" r="16" fill="#cfefff" fill-opacity="0.16"/><circle cx="197" cy="51" r="22" fill="#cfefff" fill-opacity="0.12"/><circle cx="168" cy="134" r="11" fill="#cfefff" fill-opacity="0.2"/><circle cx="67" cy="144" r="13" fill="#cfefff" fill-opacity="0.14"/><circle cx="120" cy="38" r="10" fill="#cfefff" fill-opacity="0.22"/><rect y="256" width="240" height="64" fill="#04121a" fill-opacity=".55"/><path d="M53 320V230a23 23 0 0 1 47 0V320z" fill="#0d0710"/><circle cx="77" cy="194" r="14" fill="#0d0710"/><path d="M100 320V214a25 25 0 0 1 50 0V320z" fill="#0d0710"/><circle cx="125" cy="175" r="15" fill="#0d0710"/></svg><div class="label">Blue Hour</div></div>
+    <div class="card"><svg class="photo" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="q3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1a0e"/><stop offset="1" stop-color="#c9bd63"/></linearGradient><radialGradient id="r3"><stop offset="0" stop-color="#fff2a8" stop-opacity=".9"/><stop offset="1" stop-color="#fff2a8" stop-opacity="0"/></radialGradient></defs><rect width="240" height="320" fill="url(#q3)"/><circle cx="140" cy="192" r="160" fill="url(#r3)"/><circle cx="120" cy="38" r="10" fill="#fff2a8" fill-opacity="0.22"/><circle cx="67" cy="144" r="13" fill="#fff2a8" fill-opacity="0.14"/><circle cx="168" cy="134" r="11" fill="#fff2a8" fill-opacity="0.2"/><circle cx="197" cy="51" r="22" fill="#fff2a8" fill-opacity="0.12"/><circle cx="36" cy="64" r="16" fill="#fff2a8" fill-opacity="0.16"/><path d="M88 320V220a26 26 0 0 1 52 0V320z" fill="#0d0710"/><circle cx="114" cy="180" r="16" fill="#0d0710"/><path d="M140 320V202a28 28 0 0 1 56 0V320z" fill="#0d0710"/><circle cx="168" cy="159" r="17" fill="#0d0710"/></svg><div class="label">Mehendi Night</div></div>
+    <div class="card"><svg class="photo" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="q4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1710"/><stop offset="1" stop-color="#e69a5c"/></linearGradient><radialGradient id="r4"><stop offset="0" stop-color="#ffe2b0" stop-opacity=".9"/><stop offset="1" stop-color="#ffe2b0" stop-opacity="0"/></radialGradient></defs><rect width="240" height="320" fill="url(#q4)"/><circle cx="120" cy="192" r="160" fill="url(#r4)"/><circle cx="36" cy="64" r="16" fill="#ffe2b0" fill-opacity="0.16"/><circle cx="197" cy="51" r="22" fill="#ffe2b0" fill-opacity="0.12"/><circle cx="168" cy="134" r="11" fill="#ffe2b0" fill-opacity="0.2"/><circle cx="67" cy="144" r="13" fill="#ffe2b0" fill-opacity="0.14"/><circle cx="120" cy="38" r="10" fill="#ffe2b0" fill-opacity="0.22"/><path d="M65 320V215a27 27 0 0 1 55 0V320z" fill="#0d0710"/><circle cx="93" cy="173" r="16" fill="#0d0710"/><path d="M120 320V196a29 29 0 0 1 59 0V320z" fill="#0d0710"/><circle cx="149" cy="151" r="18" fill="#0d0710"/></svg><div class="label">Golden Vows</div></div>
+  </div>
+</section>
+
+<section class="section" id="films">
+  <p class="kicker">Videography</p>
+  <h2 class="wide">Wedding films you'll want to rewatch.</h2>
+  <p class="lead">Cinematic highlight films with natural sound, real vows and the small moments in between, edited to feel like your day rather than a template.</p>
+  <!-- To use a real video: replace the <svg> with <video class="photo" src="film.mp4" poster="poster.jpg" muted loop playsinline></video>, or link this anchor to your YouTube/Vimeo page -->
+  <a class="reel" href="#" aria-label="Play the Anika and Rohan highlight film">
+    <svg class="photo" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="q9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#170f22"/><stop offset="1" stop-color="#d98a5a"/></linearGradient><radialGradient id="r9"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient></defs><rect width="640" height="360" fill="url(#q9)"/><circle cx="330" cy="216" r="180" fill="url(#r9)"/><circle cx="64" cy="72" r="22" fill="#ffd9a0" fill-opacity="0.14"/><circle cx="550" cy="65" r="29" fill="#ffd9a0" fill-opacity="0.12"/><circle cx="448" cy="180" r="14" fill="#ffd9a0" fill-opacity="0.18"/><circle cx="128" cy="198" r="18" fill="#ffd9a0" fill-opacity="0.12"/><circle cx="352" cy="54" r="11" fill="#ffd9a0" fill-opacity="0.22"/><circle cx="589" cy="216" r="18" fill="#ffd9a0" fill-opacity="0.1"/><path d="M242 360V190a44 44 0 0 1 88 0V360z" fill="#0d0710"/><circle cx="286" cy="122" r="27" fill="#0d0710"/><path d="M330 360V159a48 48 0 0 1 95 0V360z" fill="#0d0710"/><circle cx="378" cy="86" r="29" fill="#0d0710"/></svg>
+    <span class="play"></span>
+    <div class="meta"><span>Anika &amp; Rohan · Highlight film</span><span>0:52 / 2:14</span></div>
+    <div class="prog"></div>
+  </a>
+  <div class="formats">
+    <div><h3>Highlight film</h3><p>A two to four minute story of the day, set to music you choose.</p></div>
+    <div><h3>Full ceremony</h3><p>The vows, rituals and speeches in full, so nothing is lost.</p></div>
+    <div><h3>Vertical reels</h3><p>Short cuts made for Instagram, ready to share the same week.</p></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <p class="kicker">Services</p>
+  <h2 class="wide">Photographs to hold, films to replay.</h2>
+  <div class="services">
+    <div class="svc"><h3>Wedding photography</h3><p>Full-day coverage with a printed album and a private online gallery.</p><span class="medium">PHOTO</span></div>
+    <div class="svc"><h3>Wedding films</h3><p>Highlight film and full ceremony edit, shot with two cameras.</p><span class="medium">VIDEO</span></div>
+    <div class="svc"><h3>Pre-wedding shoots</h3><p>A relaxed session, with stills and a short cinematic clip.</p><span class="medium">PHOTO + VIDEO</span></div>
+    <div class="svc"><h3>Portrait sittings</h3><p>Individual, family and maternity portraits in studio or on location.</p><span class="medium">PHOTO</span></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <p class="kicker">About</p>
+  <h2 class="wide">One team behind every frame and every cut.</h2>
+  <p class="lead">Stories by Rajani is a photography and videography studio for weddings, portraits and pre-wedding shoots. The same small team shoots and edits your photographs and film, so the look stays consistent from first frame to final cut.</p>
+</section>
+
+<section class="section" id="contact" style="padding-top:20px">
+  <p class="kicker">Book</p>
+  <h2 class="wide">Tell us about your day.</h2>
+  <p class="lead">Share your date and venue and we'll reply within a day with availability and packages.</p>
+  <a class="pill solid" href="mailto:hello@storiesbyrajani.com">Book a shoot</a>
+</section>
+
+<footer>
+  <span>© 2026 Stories by Rajani</span>
+  <span>Chennai · Bengaluru</span>
+  <span>Hero photos: Unsplash contributors</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  // ---------- starfield ----------
+  var canvas = document.getElementById('stars');
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  function resize(){
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = window.innerWidth+'px';
+    canvas.style.height = window.innerHeight+'px';
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+    var count = Math.floor((window.innerWidth*window.innerHeight)/6500);
+    stars = [];
+    for(var i=0;i<count;i++){
+      stars.push({
+        x: Math.random()*window.innerWidth,
+        y: Math.random()*window.innerHeight,
+        r: Math.random()*1.3+0.2,
+        a: Math.random()*0.6+0.2,
+        tw: Math.random()*0.015+0.003,
+        dir: Math.random()>0.5?1:-1
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+    ctx.fillStyle = '#050508';
+    ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+    for(var i=0;i<stars.length;i++){
+      var s = stars[i];
+      s.a += s.tw*s.dir;
+      if(s.a>0.85||s.a<0.1) s.dir*=-1;
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(244,236,218,'+s.a.toFixed(2)+')';
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize(); draw();
+
+  // ---------- reduced motion ----------
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (window.gsap && window.ScrollTrigger && !prefersReduced) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    var tiles = gsap.utils.toArray('.tile');
+    // fixed (not random) start poses so the motion is identical on every visit
+    var starts = [{x:-140,y:-70,r:-8},{x:150,y:-60,r:7},{x:-110,y:90,r:6},{x:130,y:80,r:-6}];
+    var outScale = [3.6,3.9,3.6,3.9];
+
+    gsap.set(tiles, {autoAlpha:0, scale:0.55, force3D:true});
+    tiles.forEach(function(t,i){
+      gsap.set(t, {x:starts[i].x, y:starts[i].y, rotate:starts[i].r});
+      gsap.set(t.querySelector('.photo'), {scale:1.25});
+    });
+    gsap.ticker.lagSmoothing(0);
+    var tc = document.getElementById('tc');
+    function pad(n){ return ('0'+Math.floor(n)).slice(-2); }
+
+    var tl = gsap.timeline({
+      defaults:{ overwrite:'auto' },
+      scrollTrigger:{
+        trigger:'#hero', start:'top top', end:'bottom bottom',
+        scrub: 1.1, pin:'.hero-pin', anticipatePin:1,
+        onUpdate:function(self){ var t=self.progress*134; tc.textContent='00:'+pad(t/60)+':'+pad(t%60)+':'+pad((t%1)*24); }
+      }
+    });
+
+    tl.to('#heroHeading', {autoAlpha:0, y:-30, duration:0.6, ease:'power1.inOut'}, 0.1);
+    tl.to('#scrollCue', {autoAlpha:0, duration:0.3}, 0.05);
+    tl.to('#portrait', {scale:1.06, duration:2.4, ease:'sine.inOut'}, 0.2);
+
+    // tiles glide into place, the photo inside settles, then each drifts past the camera
+    tiles.forEach(function(t,i){
+      var inStart = 0.15 + i*0.4, outStart = 2.6 + i*0.5;
+      tl.to(t, {autoAlpha:1, scale:1, x:0, y:0, rotate:0, duration:1.4, ease:'power3.out'}, inStart);
+      tl.to(t.querySelector('.photo'), {scale:1, duration:1.8, ease:'power2.out'}, inStart);
+      tl.to(t, {autoAlpha:0, scale:outScale[i], duration:1.4, ease:'power2.in'}, outStart);
+    });
+
+    tl.to('#portrait', {scale:9, duration:1.7, ease:'power2.inOut'}, 5.6);
+    tl.to('.portrait .rim', {autoAlpha:0, duration:0.6}, 5.8);
+    tl.to('.vf', {autoAlpha:0, duration:0.6}, 6.2);
+    tl.to('#stage', {}, 6.8); // hold
+  }
+})();
+</script>
+</body>
+</html>
