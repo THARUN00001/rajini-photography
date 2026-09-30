@@ -13,13 +13,11 @@
   <link rel="stylesheet" href="./public/index.css">
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+ 
 
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
   <style>
@@ -71,6 +69,17 @@
 
 
 
+ 
+   .occationImg {
+	padding: 3px;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
+
     .imgDiv {
       margin: 0;
       padding: 0;
@@ -94,6 +103,21 @@
 	}
 
 
+
+
+
+    /* Background images only */
+    .bg-parallax {
+      background-repeat: no-repeat !important;
+      will-change: background-position;
+    }
+
+    @media (max-width: 767px) {
+      .bg-parallax {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+      }
+    }
   </style>
 
 
@@ -102,7 +126,7 @@
 <body>
   <div id="scroll-progress"></div>
 
-  <div style="background-size: cover ; background-attachment: fixed; 
+  <div class="bg-parallax" style="background-size: cover ; background-attachment: fixed; 
 	background-position: center center; margin: 0 ;
 	background-image: url('https://storage.onecloudpro.com/images/storiesbyrajiniphotography/6f308f6b81a4f34647b0a5d742fb82989eb25abd.jpg?w=2048&dpr=1&sharp_amount=27&sharp_radius=2&format=jpeg');
 	 
@@ -156,7 +180,18 @@
             <h1 style="font-size: 4vh;">
               <em>Wedding stories captured across the states</em>
             </h1>
+        
+        <button style="margin-top: 30px;" type="button"  data-aos="fade-down" class="corner-fill-btn">
+         <a target="_blank" href="https://storiesbyrajiniphotography.client-gallery.com/gallery/storiesbyrajiniphotography">
+           <p class="p-0 m-0 g-0" style="font-family: math;">
+          VIEW PORTFOLIO
+        </p>
+         </a>
+      </button>
+        
           </center>
+        
+        
         </div>
 
         <div class="about-grid" style="align-items: center;">
@@ -194,7 +229,7 @@
 
 
 <!-- ENGAGEMENT  IMAGES  START -->
-	      <div style=" 
+	      <div class="bg-parallax" data-bg-base-x="60%" style=" 
 		  background-attachment: fixed;
 		  background-position-x:60% ;  background-size: cover; position: relative; padding-bottom: 0; min-height: 70vh; 
        width: 100%; display: flex; align-items: center; justify-content: center;
@@ -207,7 +242,13 @@
             <h1 style="font-size: 9vh;">
               Engagement
             </h1>
-            
+               <button style="margin-top: 30px;" type="button"  data-aos="fade-down" class="corner-fill-btn">
+         <a target="_blank" href="https://storiesbyrajiniphotography.client-gallery.com/gallery/storiesbyrajiniphotography/engagement">
+           <p class="p-0 m-0 g-0" style="font-family: math;">
+          VIEW MORE
+        </p>
+         </a>
+      </button>
           </center>
         </div>
 
@@ -237,7 +278,7 @@
 
 
 
-     <div style=" 
+     <div class="bg-parallax" data-bg-base-x="60%" style=" 
 		  background-attachment: fixed;
 		  background-position-x:60% ;  background-size: cover; position: relative; padding-bottom: 0; min-height: 70vh; 
        width: 100%; display: flex; align-items: center; justify-content: center;
@@ -250,7 +291,13 @@
             <h1 style="font-size: 9vh;">
               Haldi
             </h1>
-            
+                    <button style="margin-top: 30px;" type="button"  data-aos="fade-down" class="corner-fill-btn">
+         <a target="_blank" href="https://storiesbyrajiniphotography.client-gallery.com/gallery/storiesbyrajiniphotography/haldi">
+           <p class="p-0 m-0 g-0" style="font-family: math;">
+          VIEW MORE
+        </p>
+         </a>
+      </button>
           </center>
         </div>
 
@@ -284,7 +331,7 @@
 <!-- PRE WEDDING IMAGES START -->
  
 
-     <div style=" 
+     <div class="bg-parallax" data-bg-base-x="30%" style=" 
 		  background-attachment: fixed;
 		  background-position-x:30% ;  background-size: cover; position: relative; padding-bottom: 0; min-height: 70vh; 
        width: 100%; display: flex; align-items: center; justify-content: center;
@@ -297,7 +344,13 @@
             <h1 style="font-size: 9vh;">
               Pre Wedding
             </h1>
-            
+                       <button style="margin-top: 30px;" type="button"  data-aos="fade-down" class="corner-fill-btn">
+         <a target="_blank" href="https://storiesbyrajiniphotography.client-gallery.com/gallery/storiesbyrajiniphotography/pre-wedding">
+           <p class="p-0 m-0 g-0" style="font-family: math;">
+          VIEW MORE
+        </p>
+         </a>
+      </button>
           </center>
         </div>
 
@@ -337,7 +390,7 @@
 <!-- RECEPTION IMAGES START -->
  
 
-     <div style=" 
+     <div class="bg-parallax" data-bg-base-x="30%" style=" 
 		  background-attachment: fixed;
 		  background-position-x:30% ;  background-size: cover; position: relative; padding-bottom: 0; min-height: 70vh; 
        width: 100%; display: flex; align-items: center; justify-content: center;
@@ -350,7 +403,13 @@
             <h1 style="font-size: 9vh;">
               Reception
             </h1>
-            
+                   <button style="margin-top: 30px;" type="button"  data-aos="fade-down" class="corner-fill-btn">
+         <a target="_blank" href="https://storiesbyrajiniphotography.client-gallery.com/gallery/storiesbyrajiniphotography/reception">
+           <p class="p-0 m-0 g-0" style="font-family: math;">
+          VIEW MORE
+        </p>
+         </a>
+      </button>
           </center>
         </div>
 
@@ -390,7 +449,7 @@
 <!-- SANGEET IMAGES START -->
  
 
-     <div style=" 
+     <div class="bg-parallax" data-bg-base-x="30%" style=" 
 		  background-attachment: fixed;
 		  background-position-x:30% ;  background-size: cover; position: relative; padding-bottom: 0; min-height: 70vh; 
        width: 100%; display: flex; align-items: center; justify-content: center;
@@ -403,7 +462,13 @@
             <h1 style="font-size: 9vh;">
               Sangeet
             </h1>
-            
+                   <button style="margin-top: 30px;" type="button"  data-aos="fade-down" class="corner-fill-btn">
+         <a target="_blank" href="https://storiesbyrajiniphotography.client-gallery.com/gallery/storiesbyrajiniphotography/sangete">
+           <p class="p-0 m-0 g-0" style="font-family: math;">
+          VIEW MORE
+        </p>
+         </a>
+      </button>
           </center>
         </div>
 
@@ -844,6 +909,49 @@
 
 
 
+  </script>
+
+  <script>
+    // Mobile-only parallax for CSS background images.
+    // Desktop continues using the original background-attachment: fixed.
+    (function () {
+      if (!window.matchMedia('(max-width: 767px)').matches) return;
+
+      const backgrounds = document.querySelectorAll('.bg-parallax');
+      if (!backgrounds.length) return;
+
+      let ticking = false;
+
+      function updateParallax() {
+        const vh = window.innerHeight;
+
+        backgrounds.forEach(function (el) {
+          const rect = el.getBoundingClientRect();
+
+          if (rect.bottom < 0 || rect.top > vh) return;
+
+          const speed = 0.12;
+          const offset = (vh / 2 - (rect.top + rect.height / 2)) * speed;
+
+          // Keep the existing background image; only move its position.
+          const baseX = el.dataset.bgBaseX || '50%';
+          el.style.backgroundPosition = baseX + ' calc(50% + ' + offset + 'px)';
+        });
+
+        ticking = false;
+      }
+
+      function requestParallax() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', requestParallax, { passive: true });
+      window.addEventListener('resize', requestParallax, { passive: true });
+      requestParallax();
+    })();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
